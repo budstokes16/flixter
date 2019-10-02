@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Turret+Road&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Grenze&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 
 .navbar {
 	font-family: 'Turret Road', cursive;
@@ -15,6 +16,11 @@
 	color: white;
 }
 
+body {
+	background: image_url('dimension.png');
+	font-family: 'Oswald', sans-serif;
+}
+
 .hero {
   background: image_url('hero.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -23,6 +29,12 @@
   background-size: cover;
   height: 370px;
   bow-shadow: 0px 3px 8px #2a2a2a;
+}
+
+.feature {
+	width: 100%;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .frosty {
@@ -48,4 +60,18 @@
 
 h1, h2, h3, h4, h5, h6, .navbar {
 	margin: 0;
+}
+
+.booyah-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 10px;
+}
+
+.booyah-box h2, booyah-box h1 {
+	margin: 10px;
 }

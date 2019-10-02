@@ -10,20 +10,50 @@
   </head>
 
   <body>
-    <nav class="navbar sticky-top navbar-toggler-md navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">Flixter</a>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Features</a>
-          <a class="nav-item nav-link" href="#">Pricing</a>
-          <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    <div id="flex-content-container">
+      <nav class="navbar sticky-top navbar-toggler-md navbar-light bg-faded">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <%= link_to 'Flixter', root_url, class: 'navbar-brand' %>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <ul class="navbar-nav">
+            <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
+      </nav>
+
+
+      <% if notice.present? %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
+
+      <% if alert.present? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      
+      <%= yield %>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <b>Teachers</b>
+        <br />
+        <%= link_to 'Teach a Course', new_instructor_course_path %>
       </div>
-    </nav>
-    <%= yield %>
+    </div>
   </body>
 </html>
